@@ -1,0 +1,78 @@
+CommonJS
+module.exports 객체를 치환하는 방식으로 모듈을 내보내고 
+require이라고 하는 키워드로 모듈을 가져온다.
+
+commonjs import
+const currency = require("./currency-functions");
+currency.canadianToUs()
+
+commonjs export 
+module.exports = obj;
+
+ES모듈 
+import와 export(named, default)로 모듈을 가져오고 내보낸다.
+
+타입스크립트 모듈은 ES6+의 Modules 개념과 유사합니다. 
+모듈은 전역 변수와 구분되는 자체 유효 범위를 가지며
+export, import와 같은 키워드를 사용하지 않으면 다른 파일에서 접근할 수 없습니다
+
+tsconfig.js 의module 옵션은 
+컴파일을 마친 자바스크립트 모듈이 어떤 모듈 시스템을 
+사용할 지를 설정하는 옵션이다.
+
+typescript 실행
+
+1. ts-node 설치 후 ts-node test.ts
+
+2.typescript -g 설치한후 tsc test.js 로 컴파일
+
+interface 에서 readonly는 객체 생성할때에만 값을 할당하고 
+그 이후에는 변경할 수 없는 속성 이다 그래서 constructor 함수에서 초기값 설정해줌
+
+readonly 배열 ReadonlyArray<number> 배열 내용 변경 추가 삭제 불가능
+
+타입스크립트에서 인터페이스를 이용하여 객체를 선언할 때 속성 이름이 같아야함
+자스에서도 그렇지 않나?
+
+함수타입이면서 객체 타입을 정의할 수 있는 인터페이스도 있다
+
+숫자형 이넘은 초기값을 줘도 되고 안줘도됨 초기값 주면 초기값 +1 씩 계속 증가
+문자형 이넘은 전부 다 특정 문자 또는 다른 이넘 값으로 초기화 해줘야됨
+
+숫자형 이넘과 문자형 이넘을 혼합하여 생성할 수는 있지만 권고 하지 않음
+
+이넘은 런타임시에 실제 객체 형태로 존재 
+
+enum에서 값으로 키 값을 얻는 리버스 매핑은 숫자형 enum에서 가능하다
+
+inteersection =여러 타입을 하나의 타입으로 합치는 것
+type Capt = Person & Developer 이런식으로 두가지 인페이스를 만족하는 타입 만들 수 있다.
+person과 Developer모두 만족해야 하나라도 안맞으면 안됨
+
+
+유니온 타입
+유니온타입으로 함수 인수로 사용해도 두가지 모두 있는 타임만 에러가 아니다
+Person | Developer 로 사용 했을때 person과 Developer모두 있는 속성만 사용가능
+
+
+Accessor
+타입스크립트는 클래스로 생성한 객체에 접근을 제어 할 수 있다.
+속성을 private 로 설정하고 geter 와 seter를 사용하여 제어
+
+readonly와 private의 차이점 
+readonly는 읽을 수는 있지만 private는 읽지도 못한다
+readonly는 값을 생성시 정할수 있지만 private는 그것도 안됨
+private는 class에서만 사용가능 
+클래스에서도 readonly를 사용할 수있지만 private과 마찬가지로 
+constructor 에서 값을 할당 해주어야 한다.
+
+Abstract Class
+클래스 extends와 implements의 차이점 
+extends 키워드는 새로운 클래스의 '상속'을 위해 사용한다. 
+상위 클래스의 모든 프로퍼티와 메서드들을 갖고 있으므로 
+일일이 정의하지 않아도 된다. 상위 클래스의 프로퍼티를 지정하지 않으면, 초기값으로 선언되며 에러는 반환하지 않는다.
+
+implements 키워드는 새로운 클래스의 모양을 동일하게 정의하고 싶을 때 사용한다.
+따라서, interface로 정의한 값들은 모두 필수적으로 들어가야 하며 
+하나라도 빠질 경우 에러를 반환한다.
+타입으로 지정한 메서드 모두 내부에서 재정의가 필요하다.

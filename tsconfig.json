@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    // "module": "commonjs",
+    //컴파일을 마친 자바스크립트 모듈이 어떤 모듈 시스템을 사용할 지를 설정하는 옵션이다.
+    "target": "ES5",
+    //타입스크립트를 어떤 버전의 자바스크립트로 바꿀지
+    "outDir": "./dist",
+    //
+    "moduleResolution": "Node",
+    "lib": ["ES2015", "DOM", "DOM.Iterable"]
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules", "dist"]
+}
